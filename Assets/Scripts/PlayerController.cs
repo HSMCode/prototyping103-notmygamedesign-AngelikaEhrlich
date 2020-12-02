@@ -14,5 +14,19 @@ public class PlayerController : MonoBehaviour
         Vector3 moveDirection = new Vector3(xDirection, 0);
 
         transform.position += moveDirection * speed;
+
+        //Check to see if the player has left the left edge of the screen
+        if (transform.position.x < -8.25f)
+        {
+            //Move the player back to the edge of the screen
+            transform.position = new Vector3(-8.25f, transform.position.y);
+        }
+
+        //Check to see if the player has left the right edge of the screen
+        if (transform.position.x > 8.25f)
+        {
+            //Move the player back to the edge of the screen
+            transform.position = new Vector3(8.25f, transform.position.y);
+        }
     }
 }
