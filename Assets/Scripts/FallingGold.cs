@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class FallingGold : MonoBehaviour
 {
-    public int speed;   //speed is how many units per second we move
+    public float speed;   //speed is how many units per second we move
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        speed = Random.Range (3f, 8f);
     }
 
     // Update is called once per frame
@@ -31,6 +31,8 @@ public class FallingGold : MonoBehaviour
             Vector3 newPosition = new Vector3(randomNumber, 6.45f);
             //move object to its new position
             transform.position = newPosition;
+            //give object a new random speed
+            speed = Random.Range(3f, 8f);
         }
 
     }
