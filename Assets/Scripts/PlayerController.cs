@@ -80,6 +80,7 @@ public class PlayerController : MonoBehaviour
         //update the lives text on the screen
         livesText.text = "Lives: " + lives.ToString();
     }
+
     void GameOver()
     {
         //Make player disappear and be disabled
@@ -93,7 +94,7 @@ public class PlayerController : MonoBehaviour
     public void PlayAgain()
     {
         //restart the game
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("SampleScene");
     }
 
     public void Quit()

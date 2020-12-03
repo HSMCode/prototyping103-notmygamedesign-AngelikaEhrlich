@@ -10,6 +10,9 @@ public class FallingGold : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //find the player and store in our player variable
+        player = GameObject.FindGameObjectWithTag("Player");
+
         speed = Random.Range (3f, 10f);
     }
 
@@ -27,7 +30,6 @@ public class FallingGold : MonoBehaviour
             //move the object back to the top edge of the screen but give a new random x coordinate
             MoveToTop();
         }
-
     }
 
     //create function
@@ -45,9 +47,18 @@ public class FallingGold : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        MoveToTop();
-        //Score gold points 
-        player.SendMessage("ScorePointsGold");
+
+        //Check to see if the other object was not a falling object before disappearing
+        if(!other.CompareTag("FallingObject"))
+        {
+            MoveToTop();
+        }
+
+        if(other.CompareTag("Player"))
+        {
+            //Score gold points 
+            player.SendMessage("ScorePointsGold");
+        }
     }
 
 }

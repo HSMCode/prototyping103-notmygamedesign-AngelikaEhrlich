@@ -10,6 +10,9 @@ public class FallingCoal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //find the player and store in our player variable
+        player = GameObject.FindGameObjectWithTag("Player");
+
         speed = Random.Range(3f, 10f);
     }
 
@@ -43,14 +46,23 @@ public class FallingCoal : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+
         if(other.CompareTag ("Player"))
         {
             //tell the player to lose a life
             player.SendMessage("LoseLife");
         }
 
-        MoveToTop();
-        //Score coal points 
-        player.SendMessage("ScorePointsCoal");
+        //Check to see if the other object was not a falling object before disappearing
+        if (!other.CompareTag("FallingObject"))
+        {
+            MoveToTop();
+        }
+
+        if (other.CompareTag("Player"))
+        {
+            //Score coal points
+            player.SendMessage("ScorePointsCoal");
+        }
     }
 }
