@@ -56,6 +56,19 @@ public class PlayerController : MonoBehaviour
     void LoseLife()
     {
         lives--;    //subtract 1 from lives
+
+        //check to see if we have are out of lives
+        if(lives < 1)
+        {
+            //out of lives
+            GameOver();
+        }
+    }
+
+    void GameOver()
+    {
+        //Make player disappear and be disabled
+        gameObject.SetActive(false);
     }
 
 }
