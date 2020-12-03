@@ -24,15 +24,24 @@ public class FallingCoal : MonoBehaviour
         if (transform.position.y < -9.45f)
         {
             //move the object back to the top edge of the screen but give a new random x coordinate
-
-            //generate random number
-            float randomNumber = Random.Range(-8.25f, 8.25f);
-            //make new Vector3 to store the new position we want the object to move to
-            Vector3 newPosition = new Vector3(randomNumber, 9.45f);
-            //move object to its new position
-            transform.position = newPosition;
-            //give object a new random speed
-            speed = Random.Range(3f, 8f);
+            MoveToTop();
         }
+    }
+
+    void MoveToTop()
+    {
+        //generate random number
+        float randomNumber = Random.Range(-8.25f, 8.25f);
+        //make new Vector3 to store the new position we want the object to move to
+        Vector3 newPosition = new Vector3(randomNumber, 9.45f);
+        //move object to its new position
+        transform.position = newPosition;
+        //give object a new random speed
+        speed = Random.Range(3f, 8f);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        MoveToTop();
     }
 }
