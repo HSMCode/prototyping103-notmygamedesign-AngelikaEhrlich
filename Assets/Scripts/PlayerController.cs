@@ -5,11 +5,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = .1f;
-    public int score; //players score
+    public int score;       //players score
+    public int lives;       //this is the number of lives the player has
 
     private void Start()
     {
         score = 0;
+        lives = 5;
     }
 
     // Update is called once per frame
@@ -48,6 +50,12 @@ public class PlayerController : MonoBehaviour
     {
         //subtract points to the score
         score -= 1;
+    }
+
+    // LoseLife will be called from the FallingCoalScript when a collision occures between the player and the coal object
+    void LoseLife()
+    {
+        lives--;    //subtract 1 from lives
     }
 
 }

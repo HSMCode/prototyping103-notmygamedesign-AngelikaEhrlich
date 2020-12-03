@@ -43,6 +43,12 @@ public class FallingCoal : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if(other.CompareTag ("Player"))
+        {
+            //tell the player to lose a life
+            player.SendMessage("LoseLife");
+        }
+
         MoveToTop();
         //Score coal points 
         player.SendMessage("ScorePointsCoal");
