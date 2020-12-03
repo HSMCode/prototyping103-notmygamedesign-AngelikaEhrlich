@@ -10,7 +10,7 @@ public class FallingGold : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = Random.Range (3f, 8f);
+        speed = Random.Range (3f, 10f);
     }
 
     // Update is called once per frame
@@ -40,7 +40,7 @@ public class FallingGold : MonoBehaviour
         //move object to its new position
         transform.position = newPosition;
         //give object a new random speed
-        speed = Random.Range(3f, 8f);
+        speed = Random.Range(3f, 10f);
     }
 
     void OnTriggerEnter2D(Collider2D other)
