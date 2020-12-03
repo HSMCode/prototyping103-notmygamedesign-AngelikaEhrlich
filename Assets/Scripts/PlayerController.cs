@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = .1f;
+    public int speed;
     public int score;                   //players score
     public int lives;                   //this is the number of lives the player has
     public Text livesText;              //link to the LivesText on  the screen
@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        speed = 10;
         score = 0;
         lives = 5;
         livesText.text = "Lives: " + lives.ToString();
@@ -27,11 +28,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float xDirection = Input.GetAxis("Horizontal");
-
-        Vector3 moveDirection = new Vector3(xDirection, 0);
-
-        transform.position += moveDirection * speed;
+        //player movement
+        transform.Translate(Vector3.right * Input.GetAxis("Horizontal") * Time.deltaTime * speed);
 
         //Check to see if the player has left the left edge of the screen
         if (transform.position.x < -8.25f)
