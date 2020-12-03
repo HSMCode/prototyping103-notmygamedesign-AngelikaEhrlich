@@ -5,6 +5,7 @@ using UnityEngine;
 public class FallingGold : MonoBehaviour
 {
     public float speed;   //speed is how many units per second we move
+    public GameObject player;   //this will hold a link to the player
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,8 @@ public class FallingGold : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         MoveToTop();
+        //Score gold points 
+        player.SendMessage("ScorePointsGold");
     }
 
 }

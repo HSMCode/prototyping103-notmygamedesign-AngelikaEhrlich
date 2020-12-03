@@ -5,6 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = .1f;
+    public int score; //players score
+
+    private void Start()
+    {
+        score = 0;
+    }
 
     // Update is called once per frame
     void Update()
@@ -29,4 +35,19 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(8.25f, transform.position.y);
         }
     }
+
+    // ScorePoints will be called from the FallingGoldScript when a collision occures between the player and the gold object
+    void ScorePointsGold()
+    {
+        //add points to the score
+        score += 1;
+    }
+
+    // ScorePoints will be called from the FallingCoalScript when a collision occures between the player and the coal object
+    void ScorePointsCoal()
+    {
+        //subtract points to the score
+        score -= 1;
+    }
+
 }

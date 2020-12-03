@@ -5,6 +5,7 @@ using UnityEngine;
 public class FallingCoal : MonoBehaviour
 {
     public float speed;   //speed is how many units per second we move
+    public GameObject player;   //this will hold a link to the player
 
     // Start is called before the first frame update
     void Start()
@@ -43,5 +44,7 @@ public class FallingCoal : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         MoveToTop();
+        //Score coal points 
+        player.SendMessage("ScorePointsCoal");
     }
 }
