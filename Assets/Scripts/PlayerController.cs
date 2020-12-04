@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
     {
         lives--;    //subtract 1 from lives
 
-        //check to see if we have are out of lives
+        //check to see if out of lives
         if (lives < 1)
         {
             //out of lives
@@ -97,6 +97,7 @@ public class PlayerController : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
+    //quitButton from the GameOverPanel
     public void Quit()
     {
         //close the window where the game is being played in 
